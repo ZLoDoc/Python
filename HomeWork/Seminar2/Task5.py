@@ -2,12 +2,10 @@
 # random.randint(2, 6)
 # random.randrange(2, 6)
 # '''
-# stroka=[]
 import random
 
 stroka=list(input(f'Введите список : '))
 print(stroka)
-# index1=len(stroka)
 for i in range (100):
     index_1 = random.randrange(len(stroka))
     index_2 = random.randrange(len(stroka))
