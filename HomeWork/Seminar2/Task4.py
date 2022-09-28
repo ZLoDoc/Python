@@ -17,7 +17,7 @@ for i in range (len(num)):
     if num[i].isdigit() == True:
         number.append(num[i])     
 n = int(number[0])
-Pos1=0
+Pos1 = 0
 row = []
 for i in range(-n,n+1):
     row.append(i)
