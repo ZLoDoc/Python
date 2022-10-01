@@ -13,11 +13,15 @@ list_1 = ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"]
 list_2 = ["йцу"]
 pos=0
 for i in range (len(list_1)-1):
-    lenght = len(list_1[i])-len(list_2)
-    for j in range (lenght):
-        if list_2 in list_1[i:]:
-            pos +=1 
-print(pos)
+    string1 = list_1[i]
+    string2 = list_2[0]
+    for j in range (len(string1) - len(string2) + 1):
+        if string2 in string1[j:j+len(string2)]:
+            result += 1
+    print(string1)
+    print(string2)
+            # pos +=1 
+# print(pos)
 
 
 
