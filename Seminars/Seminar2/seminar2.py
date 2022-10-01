@@ -66,3 +66,4 @@
 # str_ = 'qwer, dfdfdf, erwrer, werewrm'
 # print(str_.split(', '))
 # print(dir(str_)) # dir выводит все возможные методы
+

@@ -4,10 +4,10 @@
 #     - 6782 -> 23
 #     - 0,56 -> 11
 print('')
-number = str(input())
+number = str(input('Введите строку :'))
 sum_of_number=0
 for i in range (len(number)):
-    if number[i].isdigit()==True:
+    if number[i].isdigit():
         s = number[i]
         sum_of_number +=int(s)
     else:
