@@ -9,6 +9,5 @@
 # Fn = F(n+2)−F(n+1) или  F−n = (−1)n+1Fn.
 
 n = insert('Задайте число : ')
-for i in range (-n,n):
+for i in range (n*2+1):
     
-
