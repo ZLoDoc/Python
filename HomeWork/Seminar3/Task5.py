@@ -9,6 +9,8 @@
 # Fn = F(n+2)−F(n+1) или  F−n = (−1)**n+1 * Fn.
 
 def Fibonacci(n):
+    if n== 0:
+        return 0
     if n == 1 or n == 2:
         return 1
     else: 
@@ -23,11 +25,20 @@ def Negafibonacci(n):
         return Negafibonacci(n+2) - Negafibonacci(n+1)
 
 
-num = int(input('Задайте число : '))
+# num = int(input('Задайте число : '))  #Before
+# fibonacchi_list = []
+# for i in range(-num,0):    
+#     fibonacchi_list.append(Negafibonacci(i))
+# fibonacchi_list.append(0)   
+# for i in range(1,num+1):    
+#     fibonacchi_list.append(Fibonacci(i))
+# print(fibonacchi_list) 
+
+num = int(input('Задайте число : ')) #After
 fibonacchi_list = []
-for i in range(-num,0):    
-    fibonacchi_list.append(Negafibonacci(i))
-fibonacchi_list.append(0)   
-for i in range(1,num):    
-    fibonacchi_list.append(Fibonacci(i))
+for i in range(-num,num+1):
+    if i < 0:
+        fibonacchi_list.append(Negafibonacci(i))
+    if i >= 0:
+        fibonacchi_list.append(Fibonacci(i))
 print(fibonacchi_list)    

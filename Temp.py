@@ -28,6 +28,6 @@ fibonacchi_list = []
 for i in range(-num,0):    
     fibonacchi_list.append(Negafibonacci(i))
 fibonacchi_list.append(0)   
-for i in range(1,num):    
+for i in range(1,num+1):    
     fibonacchi_list.append(Fibonacci(i))
 print(fibonacchi_list) 
