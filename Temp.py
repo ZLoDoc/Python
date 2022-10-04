@@ -1,33 +1,141 @@
-# Задайте число. Составьте список чисел Фибоначчи, 
-# в том числе для отрицательных индексов.
+# Метод для красивого вывода заголовков
+def title(title_string):
+    print("\n" + title_string + "\n")
+
+    import time
+
+# Задание 1: Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
 
 # Пример:
-
-# - для k = 8 список будет выглядеть так: 
-# [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] 
-# [Негафибоначчи](https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%B3%D0%B0%D1%84%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8#:~:text=%D0%92%20%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B5%2C%20%D1%87%D0%B8%D1%81%D0%BB%D0%B0%20%D0%BD%D0%B5%D0%B3%D0%B0%D1%84%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8%20%E2%80%94%20%D0%BE%D1%82%D1%80%D0%B8%D1%86%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D1%87%D0%B8%D1%81%D0%B5%D0%BB%20%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8.)
-# Fn = F(n+2)−F(n+1) или  F−n = (−1)**n+1 * Fn.
-
-def Fibonacci(n):
-    if n == 1 or n == 2:
-        return 1
-    else: 
-        return Fibonacci(n-1) + Fibonacci(n-2)
-
-def Negafibonacci(n):
-    if n == -1:
-        return 1
-    elif n == -2:
-        return -1
-    else:
-        return Negafibonacci(n+2) - Negafibonacci(n+1)
+#
+# - [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
 
 
-num = int(input('Задайте число : '))
-fibonacchi_list = []
-for i in range(-num,0):    
-    fibonacchi_list.append(Negafibonacci(i))
-fibonacchi_list.append(0)   
-for i in range(1,num+1):    
-    fibonacchi_list.append(Fibonacci(i))
-print(fibonacchi_list) 
+def task_1():
+    title("Задание 1: Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.")
+    test_list = [1, 8, 12, 4, 115, 23]
+    print(f"Первоначальный список: {test_list}")
+
+    def odd_position_sum(array):
+        answer = 0
+        for i in range(0, len(array)):
+            if i % 2 == 0:
+                answer += array[i]
+        return answer
+    print(f"Ответ: {odd_position_sum(test_list)}")
+
+# Задание 2: Напишите программу, которая найдёт произведение пар чисел списка. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+#
+# # Пример:
+# #
+# # - [2, 3, 4, 5, 6] => [12, 15, 16];
+# # - [2, 3, 5, 6] => [12, 15]
+
+
+def task_2():
+    title("Задание 2: Напишите программу, которая найдёт произведение пар чисел списка. Парой считаем первый и последний элемент, второй и предпоследний и т.д.")
+    test_list = [2, 3, 4, 5, 6]
+
+    def multiply_pair_index(array):
+        new_array = []
+        for i in range(len(array) // 2):
+            new_array.append(array[i] * array[len(array) - 1 - i])
+        return new_array
+    print(multiply_pair_index(test_list))
+
+
+# Задание 3: Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
+# # Пример:
+# #
+# # - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
+
+def task_3():
+    title("Задание 3: Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.")
+    test_list = [1.1, 1.2, 3.1, 5, 10.01]
+
+    def dif_fraction_part(array):
+        min_value = 1
+        max_value = 0
+        for i in range(len(array)):
+            current_number = array[i] % 1
+            if current_number != 0:
+                if current_number > max_value:
+                    max_value = current_number
+                elif current_number < min_value:
+                    min_value = current_number
+        return round(max_value - min_value, 2)
+    print(dif_fraction_part(test_list))
+
+
+## # Задание 4: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+# # Пример:
+# # - 45 -> 101101
+# # - 3 -> 11
+# # - 2 -> 10
+def task_4():
+    title("Задание 4: Напишите программу, которая будет преобразовывать десятичное число в двоичное.")
+
+    def from_ten_to_two(number, answer=""):
+        current_number = str(number % 2)
+        number = number // 2
+        if number > 0:
+            answer += from_ten_to_two(number, answer)
+        answer += str(current_number)
+        return answer
+    question = 589
+    print(f"{question} --> {from_ten_to_two(question)}")
+    question = 3
+    print(f"{question} --> {from_ten_to_two(question)}")
+    question = 2
+    print(f"{question} --> {from_ten_to_two(question)}")
+
+# # Задание 5: Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
+# Пример:
+#
+# - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
+
+
+def task_5(k):
+    title("Задание 5: Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.")
+
+    k = k-1
+    fibbonachi = [0, 1]
+    for i in range(2, k):
+        fibbonachi.append(fibbonachi[i - 1] + fibbonachi[i - 2])
+
+    negafibbonachi = []
+    length = len(fibbonachi) - 1
+    for i in range(length):
+        if i % 2 == 0:
+            k = -1
+        else:
+            k = 1
+        negafibbonachi.append(fibbonachi[length - i] * k)
+    negafibbonachi = negafibbonachi + fibbonachi
+    print(negafibbonachi)
+
+
+
+    # def fibonachi(size, answer=[0, 1]):
+    #
+    #
+    #         answer.append(answer[(len(answer) - 1)] + answer[(len(answer) - 2)])
+    #         size -= 1
+    #         if size > 0:
+    #             return fibonachi(size, answer)
+    #         return answer
+    #
+    # def negafibonachi(array):
+    #     answer = []
+    #     for i in range(len(array) - 1):
+    #         answer.append((array[(len(array) - 1 - i)]) * ((-1) ** (i + 1)))
+    #     return answer + array
+    # array = fibonachi(k)
+    # array = negafibonachi(array)
+    # print(array)
+
+# task_1()
+# task_2()
+# task_3()
+# task_4()
+task_5 (10)
