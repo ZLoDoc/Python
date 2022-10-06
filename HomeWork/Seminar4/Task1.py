@@ -5,7 +5,6 @@
 # d = int(input('Задайте точность числа Pi: '))
 import time
 
-
 tic = time.perf_counter()
 print('До какого знака привести число Pi' 
         '(10^{-1} ≤ d ≤10^{-10})?')
