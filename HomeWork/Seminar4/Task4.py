@@ -7,7 +7,10 @@
 #     - k=9 => 2*x^9 - 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
 import random
 
-k = int(input('Введите степень многочлена : '))
+k = int(input('Введите степень многочлена k > 0  : '))
+if k == 0:
+    print('Введен 0')
+    exit()
 polinom = '' 
 b = 0
 c = 0
@@ -45,5 +48,8 @@ elif c > 0 and c != 0 :
 elif c < 0 and c != 0:
     polinom = polinom + (f' - {c*(-1)}')   
 print (f'{polinom} = 0')       
+
+with open('file.txt', 'a') as data:
+    data.write(f'{polinom}\n')
 
     
