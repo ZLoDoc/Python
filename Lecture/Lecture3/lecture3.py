@@ -153,6 +153,6 @@
 # [(0, 'Казань'), (1, 'Смоленск'), (2, 'Рыбки'), (3, 'Чикаго')]
 # Нельзя пройтись дважды
 
-users =['user1','user2','user3','user4','user5']
-data = list(enumerate(users))
-print(data)
+# users =['user1','user2','user3','user4','user5']
+# data = list(enumerate(users))
+# print(data)
