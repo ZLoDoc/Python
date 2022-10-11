@@ -6,31 +6,15 @@
 
 # 8x^2 + 1x - 14
 
-# with open('file2.txt', 'w') as data:
-#     data.write('3x^2 - 2x - 5')
-path = 'file1.txt'
-data = open(path, 'r')
-for line in data:
-    polinom1 = line
-    print(polinom1)
-data.close()
-path = 'file2.txt'
-data = open(path, 'r')
-for line in data:
-    polinom2 = line
-    print(polinom2)
-data.close()
+f = open('file1.txt', 'r')
+polinom_1 = list(f.read().split(' '))
+f.close()
 
-poli_list = []
-a = []
-b = []
+f = open('file2.txt', 'r')
+polinom_2 = list(f.read().split(' '))
+f.close()
 
-poli_list = (polinom1.split(' '))
-# for i in range(len(poli_list)):
-#     print(poli_list[i])
-a = (poli_list[0])
-b = (poli_list[2])
+print(polinom_1)
+print(polinom_1[0])
+print(len(polinom_1))
 
-print(f' a = {a}')
-print(f' b = {b}')
-    # for j in range(len(poli_list[0]))
