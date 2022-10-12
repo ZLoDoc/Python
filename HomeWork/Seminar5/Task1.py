@@ -1,9 +1,5 @@
 #  Напишите программу, удаляющую из текста все слова, содержащие ""абв"".
-text = ('\nИ редакабвтора и поэта не стабволько поразабвило то,' 
-    ' что наабвшлась в портабвсигаре имабвенно «Наабвша марка», '
-    'сколькабво саабвм портсиабвгар. Он бабвыл громаднабвых размеабвров, '
-    'червонабвного золабвота, и набва крыабвшке егабво при открыабввании '
-    'сверкнабвул сиабвним и беабвлым огабвнем бриллиабвантовый треугоабвльник.\n')
+text = ('\nИ редакабвтора и поэта не стабволько поразабвило то,\n')
 print(text)
 # replace_text = text.replace('абв','')
 # print(replace_text)
@@ -13,13 +9,18 @@ result_text = ''
 count = 0
 print(replace_text)
 
-for i in range(len(text)):
-    for j in range(replace_text):
-        if text[i+j] == replace_text[j]:
-            count+=1
-            if count == len(replace_text)+1:
-                i = i + (len(replace_text))
-    result_text + (text[i])                 
+
+for i in range(len(text)-len(replace_text)):
+    for j in range(len(replace_text)):
+        # print(f'i={i}')
+        # print(f'   j={j}')
+        # print(f'      i+j={i+j}')
+        if text[(i+j)] == replace_text[j]:
+           count+=1
+        else: count = 0
+        if count == len(replace_text):
+            i = i + (len(replace_text))
+    result_text = result_text +  (text[i])                 
             # if text[i+j] == replace_text[j]:count+=1
             # if count == len(replace_text)+1:
             #     count = 0
@@ -29,7 +30,7 @@ for i in range(len(text)):
 
 
             # print(text[j])
-print(text, count)
+# print(text, count)
 print(result_text)
 
 # // Дан текст. В тексте нужно все пробелы 
