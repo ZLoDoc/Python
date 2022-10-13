@@ -1,9 +1,9 @@
-from audioop import mul
+text = ' qwertyабвqwerty'
+replace_text = "абв"
 
+result_text = list(filter(lambda x: replace_text !=x, text.split('абв')))
 
+result_text = "".join(result_text)
+print(result_text)
 
-
-my_string = str.replace(my_string, "- ", "+ -").split()
-my_string = list(filter(lambda x: x != "+" and x != "=" and x != "0", my_string))
-    for i in range(len(my_string)):
-        my_string[i] = my_string[i].split("*")
+# final_text = list(filter(lambda x: question not in x, initial_text.split("aбв")))

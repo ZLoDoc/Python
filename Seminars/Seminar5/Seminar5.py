@@ -33,13 +33,13 @@
 # _______________________________________________
 # # MAP # FILTER  # ZIP
 
-a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-itog = list(map(lambda x: x**2,a))
-filter_itog = list(filter(lambda x: x % 5 != 0, a))
-print(f'MAP {itog}')
-print(f'FILTER {filter_itog}')
+# a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# itog = list(map(lambda x: x**2,a))
+# filter_itog = list(filter(lambda x: x % 5 != 0, a))
+# print(f'MAP {itog}')
+# print(f'FILTER {filter_itog}')
 
-b = 'abcdefghi'
-c = (False, True, None)
-for item in zip(a,b,c):
-    print(f'ZIP {item}' )
+# b = 'abcdefghi'
+# c = (False, True, None)
+# for item in zip(a,b,c):
+#     print(f'ZIP {item}')
