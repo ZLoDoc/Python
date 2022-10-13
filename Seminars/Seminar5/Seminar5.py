@@ -28,8 +28,8 @@
 #             a.append(n**3)
 # print(a)    
 
-# b = [n*n if not n % 2 else n**3 for n in range(11) if n % 5 !=0] 
-# print(b)
+b = [n*n if not n % 2 else n**3 for n in range(11) if n % 5 !=0] 
+print(b)
 # _______________________________________________
 # # MAP # FILTER  # ZIP
 
