@@ -7,6 +7,6 @@ text = ('\nИ редакабвтора и поэта не стабволько �
 print(text)
 replace_text = 'абв'
 print(replace_text)
-result_text=text.split(replace_text)
+result_text = text.split(replace_text)
 result_text = "".join(result_text)
 print(result_text)
