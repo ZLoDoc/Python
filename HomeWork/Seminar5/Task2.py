@@ -84,7 +84,7 @@ def comp_algorithm(con):
             step = int(input(f'\n\t {player} возьми не больше 28 конфет :'))
         if 0 < step <= 28 : 
             candy = candy - step
-            if candy <=0:
+            if candy <= 0:
                 return player
             if flag == 1 : flag = 0
             else: flag = 1
