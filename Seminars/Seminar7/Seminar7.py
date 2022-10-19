@@ -1,4 +1,4 @@
-# time 51:37
+# time 1:42:37
 itog = set()
  
  
