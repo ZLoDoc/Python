@@ -1,6 +1,3 @@
-# Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных. 
-# from curses.ascii import isdigit
-
 
 text = 'aaaaaaaaabbbbbbccccccchhhhhh'
 print(f'Изначальный текст {text}')
@@ -31,5 +28,3 @@ for i, char in enumerate(code):
                 res.append(letter)
 res = "".join(res)                
 print(f'RLE декомпрессия {res}')
-
-
