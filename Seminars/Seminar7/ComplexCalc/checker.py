@@ -1,9 +1,11 @@
-def checker(data = ""):
-    useful_sumbol = ("(",")","+","-","/","*",",","."," ") 
-    data_temp = data
-    for letter in data:
-        if not letter.isdigit() and (not letter in useful_sumbol):
-            data_temp = data_temp.replace(letter,"")
-    return data_temp
-
-print(checker("(0,1) aaa  - yyy (2,7)"))
+def checker(data):
+    operations = ["+","-","/","*"]
+    data = data.split()
+    if len(data) == 1 and str(data[0]).replase(".","",1).isnumeric():
+        return 1,float(data[0]),0.0
+    elif len(data) ==2 and str(data[0]).replace(".","",1).isnumeric() and str(data[1]).replace(".","",1).isnumeric():
+        return 2, float(data[0]),float(data[1])
+    elif len(data) == 1 and (data[0] in operations):
+        return 3, 0.0, 0.0
+    else:
+        return -1, 0.0, 0.0
