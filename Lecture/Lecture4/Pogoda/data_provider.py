@@ -1,4 +1,3 @@
-import imp
 from random import randint
 
 def get_temperature(sensor):
