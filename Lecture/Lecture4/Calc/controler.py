@@ -1,5 +1,5 @@
 import model_sub as model
-import view
+import HomeWork.Seminar7.view as view
 
 def button_click():
     value_a = view.get_value()
