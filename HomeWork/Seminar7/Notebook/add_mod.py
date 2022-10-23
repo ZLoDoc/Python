@@ -1,13 +1,13 @@
 def add_data(work_data):#добавление 
 
     add = ""           
-    add += input("Введите имя: ").capitalize()
+    add += input("Введите имя: ").capitalize().strip()
     add+=" "
-    add += input("Введите фамилию: ").capitalize()
+    add += input("Введите фамилию: ").capitalize().strip()
     add+=" "
-    add += input("Введите номер телефона: ").lower()
+    add += input("Введите номер телефона: ").lower().strip()
     add+=" "
-    add += input("Введите описание к записи: ").lower()
+    add += input("Введите описание к записи: ").lower().strip()
     add+=";"
     end = 1
        
