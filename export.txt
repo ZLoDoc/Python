@@ -1,4 +1,4 @@
-FirstName1 LastName1 Phone1 Description1;FirstName2 LastName2 Phone2 Description2;FirstName3 LastName3 Phone3 Description3;Вася Петров 343434 ыыыыыыы;Лена Антипова 564345 222222;
+FirstName1 LastName1 Phone1 Description1;FirstName2 LastName2 Phone2 Description2;FirstName3 LastName3 Phone3 Description3;Вася Петров 343434 ыыыыыыы;333 ывыывывыв 2323 выв3 3234;
 #######
 FirstName1 LastName1 Phone1 Description1
 
@@ -8,6 +8,6 @@ FirstName3 LastName3 Phone3 Description3
 
 Вася Петров 343434 ыыыыыыы
 
-Лена Антипова 564345 222222
+333 ывыывывыв 2323 выв3 3234
 
 
