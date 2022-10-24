@@ -1,13 +1,1 @@
-FirstName1 LastName1 Phone1 Description1;FirstName2 LastName2 Phone2 Description2;FirstName3 LastName3 Phone3 Description3;ֲאסÿ ֿוענמג 343434 ûûûûûûû;333 ûגûûגûגûג 2323 גûג3 3234;
-#######
-FirstName1 LastName1 Phone1 Description1
-
-FirstName2 LastName2 Phone2 Description2
-
-FirstName3 LastName3 Phone3 Description3
-
-ֲאסÿ ֿוענמג 343434 ûûûûûûû
-
-333 ûגûûגûגûג 2323 גûג3 3234
-
-
+ׁ„ׁ‹׀²׀²ׁ„ׁ‹׀²ׁ„ׁ‹
