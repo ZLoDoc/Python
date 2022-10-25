@@ -1,3 +1,4 @@
+import imp_exp as ie
 def add_data(work_data):#добавление 
 
     add = ""           
@@ -16,6 +17,7 @@ def add_data(work_data):#добавление
            
         if add_confirm == "да":
             work_data += add
+            ie.exit(work_data)
             end = 0
 
         elif add_confirm == "нет": 

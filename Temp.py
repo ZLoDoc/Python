@@ -1,12 +1,12 @@
-# https://pythonworld.ru/moduli/modul-csv.html
-import csv
-with open('pb.csv', newline='') as data: #'чтение'
-    reader = csv.reader(data)
-    for row in reader:
-        print(row)
+from fileinput import close
 
-import csv
-with open('pb.csv', 'w', newline='') as data:#'запись'
-    writer = csv.writer(data)
-    writer.writerows('someiterable')        
-              
+
+# def import2_txt():
+work_data = ""
+with open("file_2.txt", "r") as data:       
+    for line in data:            
+        work_data = work_data + line.strip() + ";"            
+    print(work_data)
+with open('pb.txt' , 'w') as data:
+    data.writelines(work_data)            
+    

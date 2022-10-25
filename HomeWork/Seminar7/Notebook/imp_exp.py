@@ -12,34 +12,44 @@ def exit(work_data):
         data.writelines(work_data)
 
 
-def export_txt(work_data):   
-    with open('export.txt' , 'w') as data: 
+def export1_txt(work_data):   
+    with open('file_1.txt' , 'w') as data: 
         data.writelines(work_data)
 
 
-def export_csv(work_data):
-    with open('pb.csv', 'w', newline='') as data:#'запись'
-        writer = csv.writer(work_data)
-        writer.writerows(work_data)        
+
+
+def export2_txt(work_data):
+    result=""   
+    with open('pb.txt' , 'rt') as data:
+        for line in data.readlines():
+            work_data = line    
+    for i in work_data.split(';'): 
+        result += i + ('\n')
+        print(f'result={result}')    
+
+    with open('file_2.txt' , 'w') as data:
+        data.writelines(result)
 
 
 
 
-        # base = []
-        # deep_base = []
-        
-        # base = work_data.split(';')   
-          
-        # for i in range (len(base)):                   
-        #     deep_base = base[i].split(' ')        
-        #     data.write(f'\n{" ".join(deep_base)}\n')
 
-# def import_data(work_data):
-#     with open('export.txt' , 'rt') as data:
-#         for line in data.readlines():
-#              work_data = line
-#              print(work_data)
-# import csv
-# with open('pb.csv', 'w', newline='') as data:#'запись'
-#     writer = csv.writer(data)
-#     writer.writerows('someiterable')
+def import1_txt():
+    with open('file_1.txt' , 'rt') as data:
+        for line in data.readlines():
+             work_data = line
+    with open('pb.txt' , 'w') as data:
+        data.writelines(work_data)
+
+    return work_data
+
+def import2_txt():
+    work_data = ""
+    with open("file_2.txt", "r") as data:       
+        for line in data:            
+            work_data = work_data + line.strip() + ";"            
+    # print(work_data)
+    with open('pb.txt' , 'w') as data:
+        data.writelines(work_data)        
+    return work_data
