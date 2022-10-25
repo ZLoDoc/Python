@@ -16,17 +16,15 @@ while menu_continue:
     if choise == "3": 
         # ie.export(work_data)
         while menu_exp_continue:
-           choise1 = menu.main_menu_export()
-           print(f'choise1 {choise1}')
+           choise1 = menu.main_menu_export()           
            choise = ""
-           if choise1 == 1:
+           if choise1 == "1":
+            ie.export_csv(work_data)
             break
-           if choise1 == 2: 
-            print('выбран 2')
+           if choise1 == "2": 
+            ie.export_txt(work_data)            
             break
-           if choise1 == 3:
-            # menu_exp_continue = False
-            break
+           if choise1 == "3":break
 
     if choise == "4": ie.import_data(work_data)
     if choise == "5": fm.find_value(work_data)
