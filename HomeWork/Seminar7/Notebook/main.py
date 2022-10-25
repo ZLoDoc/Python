@@ -4,7 +4,6 @@ import menu
 import view
 import add_mod as ad
 import find_mod as fm
-# import export as exp
 
 menu_continue = True
 menu_exp_continue =True
@@ -29,16 +28,15 @@ while menu_continue:
     if choise == "4": 
         while menu_continue:
             choise2 = menu.main_menu_import()
-            # print           
             choise = ""
             if choise2 == "1":
-                work_data = ie.import1_txt()
+                work_data = ie.import1_txt(work_data)
                 break
             if choise2 == "2":
                 work_data = ie.import2_txt()
                 break
             if choise2 == "3":break
     if choise == "5": fm.find_value(work_data)
-    if choise == "6": 
+    if choise == "6":
         ie.exit(work_data)
-        break 
+        break

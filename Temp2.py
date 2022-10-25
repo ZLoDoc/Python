@@ -1,12 +1,12 @@
 def export2_txt():
-    result=""   
+    result=""
+    a=[]  
     with open('pb.txt' , 'rt') as data:
         for line in data.readlines():
-            work_data = line.strip()
-            
-            print(work_data.split(";"))
-            for i in work_data.split(";"):
-                print(work_data)
+            work_data = line                       
+            result=(work_data.split(";"))
+            for i in result:
+                print(i)
            
                 
             
