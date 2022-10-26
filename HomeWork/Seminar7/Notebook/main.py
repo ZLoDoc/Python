@@ -17,7 +17,7 @@ while menu_continue:
         while menu_continue:
             choise1 = menu.main_menu_export()           
             choise = ""            
-            print(f'choise1 = {choise1}')
+            # print(f'choise1 = {choise1}')
             if choise1 == "1":
                 ie.export1_txt(work_data)
                 break

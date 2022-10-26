@@ -1,10 +1,9 @@
+
 def open_base():
     with open('pb.txt' , 'rt', encoding="utf-8") as data:
         for line in data.readlines():
-            print(type(line))
-            work_data = line
-    return work_data()
-
+             work_data = line
+    return work_data
 
 def exit(work_data):
     with open('pb.txt' , 'w', encoding="utf-8") as data:
@@ -66,7 +65,7 @@ def import1_txt(work_data):#добавляет уникальные записи
                 line = line.split(";")            
                 work_data=work_data.split(";")            
                 for x in line:
-                    print(x)
+                    # print(x)
                     if x not in work_data:
                         temp = temp + x + ";"
                 work_data = ";".join(work_data)
@@ -80,13 +79,13 @@ def import2_txt():#добавляет уникальные записи
     with open('pb.txt' , 'rt', encoding="utf-8") as data:
             for i in data.readlines():
                 work_data = i
-            print(f'work_data ={work_data}') 
+            # print(f'work_data ={work_data}') 
 
     line = ("")
     with open("file_2.txt", "r", encoding="utf-8") as data:       
         for every_string in data:            
             line =  every_string.strip() + ";"
-            print(f'line = {line}')          
+            # print(f'line = {line}')          
 
             if line == work_data:
                 with open('pb.txt' , 'w', encoding="utf-8") as data:
