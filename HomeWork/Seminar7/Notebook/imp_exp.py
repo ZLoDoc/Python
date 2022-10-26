@@ -1,5 +1,6 @@
 
 def open_base():
+    work_data = " "
     with open('pb.txt' , 'rt', encoding="utf-8") as data:
         for line in data.readlines():
              work_data = line

@@ -1,17 +1,17 @@
 
-with open('pb.txt' , 'rt', encoding="utf-8") as data:
+with open('HomeWork/Seminar7/Notebook/pb.txt', 'rt', encoding="utf-8") as data:
         for i in data.readlines():
             work_data = i
         print(f'work_data ={work_data}') 
 
 line = ("")
-with open("file_2.txt", "r", encoding="utf-8") as data:       
+with open("HomeWork/Seminar7/Notebook/file_2.txt", "r", encoding="utf-8") as data:
     for every_string in data:            
         line =  every_string.strip() + ";"
         print(f'line = {line}')          
 
         if line == work_data:
-            with open('pb.txt' , 'w', encoding="utf-8") as data:
+            with open('HomeWork/Seminar7/Notebook/pb.txt', 'w', encoding="utf-8") as data:
                 data.writelines(work_data) 
 
 
@@ -26,7 +26,7 @@ with open("file_2.txt", "r", encoding="utf-8") as data:
             work_data = ";".join(work_data)
             work_data += temp              
                 
-            with open('pb.txt' , 'w', encoding="utf-8") as data:
+            with open('HomeWork/Seminar7/Notebook/pb.txt', 'w', encoding="utf-8") as data:
                 data.writelines(work_data)
             
 
