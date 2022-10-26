@@ -17,7 +17,7 @@ def export1_txt(work_data):
 
 
 def export2_txt(work_data):
-    result=""   
+    result = ""   
     with open('pb.txt' , 'rt', encoding="utf-8") as data:
         for line in data.readlines():
             work_data = line.split(";")
@@ -49,7 +49,7 @@ def export2_txt(work_data):
 
 
 
-def import1_txt(work_data):#добавляет уникальные записи
+def import1_txt(work_data): #добавляет уникальные записи
     with open('pb.txt' , 'rt', encoding="utf-8") as data:
         for line in data.readlines():
              work_data = line        
@@ -64,13 +64,13 @@ def import1_txt(work_data):#добавляет уникальные записи
             else: 
                 temp = ""
                 line = line.split(";")            
-                work_data=work_data.split(";")            
+                work_data = work_data.split(";")            
                 for x in line:
                     # print(x)
                     if x not in work_data:
                         temp = temp + x + ";"
                 work_data = ";".join(work_data)
-                work_data+=temp              
+                work_data += temp              
                 
                 with open('pb.txt' , 'w', encoding="utf-8") as data:
                     data.writelines(work_data)

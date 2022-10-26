@@ -5,11 +5,11 @@ def add_data(work_data):#добавление
     add += input("Введите имя: ").capitalize().strip()
     add+=" "
     add += input("Введите фамилию: ").capitalize().strip()
-    add+=" "
+    add += " "
     add += input("Введите номер телефона: ").lower().strip()
-    add+=" "
+    add += " "
     add += input("Введите описание к записи: ").lower().strip()
-    add+=";"
+    add += ";"
     end = 1
        
     while end != 0:            
