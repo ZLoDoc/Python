@@ -1,4 +1,4 @@
-# from HomeWork.Seminar7.Notebook.menu import main_menu_export
+
 import imp_exp as ie
 import menu
 import view
@@ -8,6 +8,7 @@ import find_mod as fm
 menu_continue = True
 menu_exp_continue =True
 work_data = ie.open_base()
+
 while menu_continue:
     choise = menu.main_menu()
     if choise == "1": view.view_baase(work_data)

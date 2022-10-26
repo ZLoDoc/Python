@@ -7,13 +7,13 @@ def find_value(work_data):
     base = work_data.split(';')   
             
     for i in range (len(base)):
-        print(f'i{i} = {base[i]}')                
+        # print(f'i{i} = {base[i]}')                
         deep_base = base[i].split(' ')
 
         for j in range (len(deep_base)):
                     
-            print(f'deepbase[{j}] = {deep_base[j]}')
-            if deep_base[j] == find:
+            # print(f'deepbase[{j}] = {deep_base[j]}')
+            if deep_base[j].lower() == find.lower():
                 find_result.append(base[i])
                         
             print(f'\nИскомая запись\n')
