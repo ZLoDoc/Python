@@ -1,18 +1,13 @@
-def export2_txt():
-    result=""
-    a=[]  
-    with open('pb.txt' , 'rt') as data:
-        for line in data.readlines():
-            work_data = line                       
-            result=(work_data.split(";"))
-            for i in result:
-                print(i)
-           
-                
-            
+import csv
+def csv_export():
+    with open('file.csv', 'r', newline='') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        for row in spamreader:
+            print(', '.join(row))
 
-    # with open('file_2.txt' , 'w') as data:
-    #     data.writelines(result)
-    # print(result)
-
-export2_txt()
+    with open('eggs.csv', 'w', newline='') as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter=' ',
+        quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        spamwriter.writerow(['Spam'] * 5 + ['Baked Beans'])
+        spamwriter.writerow(['Spam', 'Lovely Spam', 'Wonderful Spam'])
+csv_export()
