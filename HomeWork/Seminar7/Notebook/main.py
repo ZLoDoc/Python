@@ -6,7 +6,7 @@ import add_mod as ad
 import find_mod as fm
 
 menu_continue = True
-menu_exp_continue =True
+menu_exp_continue = True
 work_data = ie.open_base()
 
 while menu_continue:
