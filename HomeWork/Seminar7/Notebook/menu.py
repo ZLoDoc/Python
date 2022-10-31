@@ -16,4 +16,4 @@ def main_menu_import():
     # while menu_continue:
     print("импорт")
     choise2 = input(' 1 - txt (file_1.txt)\n 2 - txt (file_2.txt)\n 3 - выход\n')
-    return choise2    
+    return choise2
