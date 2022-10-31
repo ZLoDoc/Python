@@ -24,24 +24,15 @@ def admin_menu(work_data):
     
 
 def admin_edit_menu():
-    choise_admin_edit_menu = input(' 1 - Добавить пользователя\n 2 - Удалить пользователя\n 3 - Выход\n')
-    return choise_admin_edit_menu
+    while True: 
+        choise_admin_edit_menu = input(' 1 - Добавить пользователя\n 2 - Удалить пользователя\n 3 - Выход\n')
+        return choise_admin_edit_menu
 
-def role_menu(work_data):            
-    result = str("")
-    first_name = input('Введите имя: ')
-    result += first_name
-    last_name = input('Введите фамилию: ')
-    result += "," + last_name
-    print('Задайте роль : ')
-    role = input(' 1 - админ\n 2 - преподаватель\n 3 - студент\n')
-    if role == "1": role = "admin"
-    if role == "2": role = "teacher"
-    if role == "3": role = "student"
-    result += "," + role
-    work_data.append(result)
-    print(line)    
-    return(result)
+def role_menu():
+    
+    while True:                         
+        role = input(' 1 - админ\n 2 - преподаватель\n 3 - студент\n')            
+        return(role)
 
 def exit_menu():
     choise = input('Выйти? Да  / Нет\n').lower()

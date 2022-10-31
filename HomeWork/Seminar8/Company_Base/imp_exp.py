@@ -11,10 +11,5 @@ def write_file(work_data):
         data.writelines(work_data)
 
 
-def add_users_admin(work_data):    
-    print(f'work_data in add_users_admin = {work_data}')
-    print(f'menu.role_menu() = {menu.role_menu(work_data)}')
-    # if first_name and last_name and role in work_data: 
-    #     print ('Пользователь есть в базе')
-    return
+
     
