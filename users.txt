@@ -1,1 +1,6 @@
 1,1,admin
+Лена,Петрова,admin
+Ли,Чан,student
+Ким,Сен,teacher
+Уке,Уке,admin
+Саша,Пупкин,student
