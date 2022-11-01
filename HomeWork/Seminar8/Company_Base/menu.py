@@ -36,8 +36,8 @@ def role_menu():
 
 def exit_menu():
     choise = input('Выйти? Да  / Нет\n').lower()
-    if choise == "Да": 
-        exit
+    if choise.lower() == "да":
+        exit()
     else:
         return()         
 

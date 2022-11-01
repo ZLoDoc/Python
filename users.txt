@@ -1,3 +1,1 @@
-Лена,Петрова,admin
-Ли,Чан,student
-Ким,Сен,teacher
+1,1,admin

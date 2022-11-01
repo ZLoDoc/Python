@@ -17,41 +17,54 @@ def login():
         print(f'Пользователь {first_name.capitalize()} {last_name.capitalize()} не обнаружен, повторите ввод')
         value = "bad_input"            
             
-def add_users_admin(work_data):    
-    print(f'work_data in add_users_admin = {work_data}')
+def add_users_admin():
+    while True:
+        work_data = ie.read_file("users.txt")    
+        print(f'work_data in add_users_admin = {work_data}')
+        result = str("")
+        first_name = input('Введите имя: ')
+        result += first_name.capitalize()
+        last_name = input('Введите фамилию: ')
+        result += "," + last_name.capitalize()
+        print('Задайте роль : ')
+        role =  menu.role_menu()
+        if role == "1": role = "admin"
+        if role == "2": role = "teacher"
+        if role == "3": role = "student"
+        result += "," + role
+        work_data.append(result)
+        print(work_data)
 
-    result = str("")
-    first_name = input('Введите имя: ')
-    result += first_name.capitalize()
-    last_name = input('Введите фамилию: ')
-    result += "," + last_name.capitalize()
-    print('Задайте роль : ')
-    role =  menu.role_menu()
-    if role == "1": role = "admin"
-    if role == "2": role = "teacher"
-    if role == "3": role = "student"
-    result += "," + role
-    work_data.append(result)
-    print(result)
+        choise = input('Сохранить пользователя? Да  / Нет\n')
+        if choise.lower() == "да":             
+            temp=""
+            for item in work_data:
+                temp = temp + (f'{item}\n')
+                ie.write_file("users.txt", temp)
+                return()
+        elif choise.lower() == "нет":
+            return()
+                              
 
-    return
+
+   
 
 
 def modul_admin():#функцианал админ меню
     print(f'value = {value}')
     while True:
         choise_admin_menu = menu.admin_menu(ie.read_file("users.txt"))
-        if choise_admin_menu == "1" : view.view_base(ie.read_file("users.txt"))
-        elif choise_admin_menu == "3": menu.exit_menu()
-        elif choise_admin_menu == "2":            
-        
-        
+        if choise_admin_menu == "1":
+            view.view_base(ie.read_file("users.txt"))
+        elif choise_admin_menu == "3":
+            menu.exit_menu()
+        elif choise_admin_menu == "2":
+
             choise_admin_edit_menu = menu.admin_edit_menu()
             if choise_admin_edit_menu == "1":
-
-                a = add_users_admin((ie.read_file("users.txt")))
+                add_users_admin()
                 b = menu.role_menu()
-                print(f'a={a}')
+                # print(work_data)
 
 
 
