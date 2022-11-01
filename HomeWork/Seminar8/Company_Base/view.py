@@ -5,3 +5,5 @@ def view_base(filename):
     for value in work_data:
         print(f'{value}')
     print()            
+
+# def view_mark(value)

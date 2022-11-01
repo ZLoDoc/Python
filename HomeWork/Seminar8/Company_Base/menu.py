@@ -57,10 +57,13 @@ def exit_menu():
     else:
         return()         
 
-# def student_menu(value):
-#     print(value)
-#     choise = input(' 1 - Посмотреть ДЗ\n 2 - Список оценок\n')
-#     return
+def student_menu():
+   while True:
+        choise_student_menu = input(' 1 - Посмотреть ДЗ\n 2 - Список сданных работ\n 3 - Выход\n')
+        if choise_student_menu == "1" or choise_student_menu == "2" or choise_student_menu == "3":
+            return choise_student_menu
+        else:
+             continue
 
 # def teacher_menu(value):
 #     print(value)

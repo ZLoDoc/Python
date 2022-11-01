@@ -101,10 +101,44 @@ def delete_user():
             view.view_base("users.txt")                        
             return()   
 
+def modul_student(value):
+    while True:
+        choise_student_menu = menu.student_menu()
+        if choise_student_menu == "1": view_home_work(value) # показать только задания залогиневшегося студента
+        if choise_student_menu == "2": view_mark(value)
+        if choise_student_menu == "3": menu.exit_menu()    
+
+def view_home_work(value):#< -------Исключить оцененные ДЗ из списка
+    result = ""
+    home_work_data = ie.read_file('home_work.txt')
+    mark_data = ie.read_file('mark.txt')
+
+    for i in range (len(mark_data)):
+        if (value[0] and value[1]) in str(mark_data[i]).split(","):
 
 
+            # for j in range(len(home_work_data)):
+            #     if(home_work_data[j]).split(",")[0] != (mark_data[i]).split(",")[2]:
+            #         if home_work_data[j] not in result:
+            #             result += (home_work_data[j]).split(",")[1]+((home_work_data[j]).split(",")[2])
+            #             print(result)
+    
 
+
+def view_mark(value):
+    
+    mark_data = ie.read_file('mark.txt')
+    home_work_data = ie.read_file('home_work.txt')
+
+    for i in range (len(mark_data)):
+        if (value[0] and value[1]) in str(mark_data[i]).split(","):             
+            for j in range(len(home_work_data)):
+                if (mark_data[i]).split(",")[2] == (home_work_data[j]).split(",")[0]:
+                    print(f'Оценки ученика {value[0]} {value[1]} по предмету {(home_work_data[j]).split(",")[1]} за работу " {(home_work_data[j]).split(",")[2]}" - {(mark_data[i]).split(",")[3]} балла')
+                    
+   
 
 value = login()
 print(f'Рады вас видеть {value[0]}')
 if value[2] == 'admin': modul_admin()
+if value[2] == 'student': modul_student(value)
