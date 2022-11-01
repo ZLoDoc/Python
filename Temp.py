@@ -1,48 +1,31 @@
-
-with open('HomeWork/Seminar7/Notebook/pb.txt', 'rt', encoding="utf-8") as data:
-        for i in data.readlines():
-            work_data = i
-        print(f'work_data ={work_data}') 
-
-line = ("")
-with open("HomeWork/Seminar7/Notebook/file_2.txt", "r", encoding="utf-8") as data:
-    for every_string in data:            
-        line =  every_string.strip() + ";"
-        print(f'line = {line}')          
-
-        if line == work_data:
-            with open('HomeWork/Seminar7/Notebook/pb.txt', 'w', encoding="utf-8") as data:
-                data.writelines(work_data) 
-
-
-        else: 
-            temp = ""
-            line = line.split(";")            
-            work_data = work_data.split(";")            
-            for x in line:
-                # print(x)
-                if x not in work_data:
-                    temp = temp + x + ";"
-            work_data = ";".join(work_data)
-            work_data += temp              
-                
-            with open('HomeWork/Seminar7/Notebook/pb.txt', 'w', encoding="utf-8") as data:
-                data.writelines(work_data)
-            
-
-
-# def import2_txt(): рабочий код 
-#     work_data = ""
-#     with open("file_2.txt", "r", encoding="utf-8") as data:       
-#         for line in data:            
-#             work_data = work_data + line.strip() + ";"
-#             with open('pb.txt' , 'w', encoding="utf-8") as data:
-#                 data.writelines(work_data)
-#     return work_data
-
-
-
-
-
-
-      
+def add_users_admin():
+    while True:
+        work_data = ie.read_file("users.txt")    
+        view.view_base("users.txt")
+        result = str("")
+        first_name = input('Введите имя: ')
+        result += first_name.capitalize()
+        last_name = input('Введите фамилию: ')
+        result += "," + last_name.capitalize()
+        print('Задайте роль : ')
+       
+        role = menu.role_menu()      
+        if role == "1": role = "admin"
+        if role == "2": role = "teacher"
+        if role == "3": role = "student"        
+        result += "," + role
+        if result in work_data: 
+            print('Такой пользователь есть в базе')
+            return()
+        else:
+            work_data.append(result)
+            print(result)
+            choise = input('Сохранить пользователя? Да  / Нет\n')
+            if choise.lower() == "да":             
+                temp=""
+                for item in work_data:
+                    temp = temp + (f'{item}\n')            
+                ie.write_file("users.txt", temp)
+                return()
+            elif choise.lower() == "нет":
+                return()
