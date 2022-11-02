@@ -1,8 +1,6 @@
-1,1,admin
 Лена,Петрова,admin
 Ли,Чан,student
 Ким,Сен,teacher
-Уке,Уке,admin
 Саша,Пупкин,student
-2,2,student
-3,3,student
+Сергей,Иванов,student
+Кирилл,Сидоров,student

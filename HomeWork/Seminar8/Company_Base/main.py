@@ -105,10 +105,30 @@ def modul_student(value):
         if choise_student_menu == "2": view.view_mark(value)
         if choise_student_menu == "3": menu.exit_menu()    
 
-                
+def modul_teacher():
+     while True:        
+        choise_teacher_menu = menu.teacher_menu()
+        if choise_teacher_menu == "1": view.view_teacher_mark()
+        if choise_teacher_menu == "2": print("Нужно добавить ДЗ")
+        if choise_teacher_menu == "3": print("Нужно ставить оценку")
+        if choise_teacher_menu == "4": menu.exit_menu()
+
+def add_home_work():
+    home_work_data = ie.read_file('home_work.txt')
+    subject = list(input('введите название предмета: '))
+    home_work = list(input('Напишите ДЗ: '))
+    home_work_data.append(subject).split(",")
+    home_work_data.append(home_work)
+    print (home_work_data)
+
+
+
+    
    
 
 value = login()
-print(f'Рады вас видеть {value[0]}')
+print(f'\nРады вас видеть {value[0]}\n')
 if value[2] == 'admin': modul_admin()
 if value[2] == 'student': modul_student(value)
+if value[2] == 'teacher': modul_teacher()
+# add_home_work()

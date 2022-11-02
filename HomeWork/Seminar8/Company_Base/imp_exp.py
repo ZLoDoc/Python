@@ -1,4 +1,5 @@
-import menu
+# import menu
+
 def read_file(filename):
     with open(filename, 'rt', encoding="utf-8") as data:
         line = data.readlines()

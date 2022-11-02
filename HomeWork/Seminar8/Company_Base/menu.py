@@ -65,6 +65,15 @@ def student_menu():
         else:
              continue
 
+
+def teacher_menu():
+   while True:
+        choise_student_menu = input(' 1 - посмотреть успеваимость\n 2 - добавить ДЗ\n 3 - поставить оценку\n 4 - Выход\n')
+        if choise_student_menu == "1" or choise_student_menu == "2" or choise_student_menu == "3" or choise_student_menu == "4":
+            return choise_student_menu
+        else:
+             continue
+
 # def teacher_menu(value):
 #     print(value)
 #     choise = input(' 1 - Добавить ДЗ\n 2 - Поставить оценку\n')
