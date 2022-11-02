@@ -49,10 +49,7 @@ def add_users_admin():
         if role == "2": role = "teacher"
         if role == "3": role = "student"        
         result += "," + role
-        # work_data.append(result)
-        # temp1 = ""
-        # for value in work_data:            
-        #     temp1 = temp1 + value + "\n"
+   
         if result in work_data: 
             print('Такой пользователь есть в базе')
             return()
@@ -104,12 +101,15 @@ def delete_user():
 def modul_student(value):
     while True:
         choise_student_menu = menu.student_menu()
-        if choise_student_menu == "1": view_home_work(value) # показать только задания залогиневшегося студента
+        if choise_student_menu == "1": view_home_work(value)
         if choise_student_menu == "2": view_mark(value)
         if choise_student_menu == "3": menu.exit_menu()    
 
-def view_home_work(value):#< -------Исключить оцененные ДЗ из списка
-    result = ""
+def view_home_work(value):
+    
+    subject_with_mark = ""
+    temp =[]
+    result = []
     home_work_data = ie.read_file('home_work.txt')
     mark_data = ie.read_file('mark.txt')
 
@@ -117,12 +117,18 @@ def view_home_work(value):#< -------Исключить оцененные ДЗ �
         if (value[0] and value[1]) in str(mark_data[i]).split(","):
 
 
-            # for j in range(len(home_work_data)):
-            #     if(home_work_data[j]).split(",")[0] != (mark_data[i]).split(",")[2]:
-            #         if home_work_data[j] not in result:
-            #             result += (home_work_data[j]).split(",")[1]+((home_work_data[j]).split(",")[2])
-            #             print(result)
+            for j in range(len(home_work_data)):
+                if(home_work_data[j]).split(",")[0] == (mark_data[i]).split(",")[2]:
+                    subject_with_mark = subject_with_mark + str(home_work_data[j]) + "\n"
+                    temp = subject_with_mark.split("\n")
+
+    result = [item for item in home_work_data if item not in temp]
     
+    print(f'\n')
+    print('Не сданные работы:')
+    for value in result:
+        print(f'{value[2:]}')
+    print(f'\n')           
 
 
 def view_mark(value):
@@ -130,12 +136,15 @@ def view_mark(value):
     mark_data = ie.read_file('mark.txt')
     home_work_data = ie.read_file('home_work.txt')
 
+    print()
     for i in range (len(mark_data)):
         if (value[0] and value[1]) in str(mark_data[i]).split(","):             
             for j in range(len(home_work_data)):
                 if (mark_data[i]).split(",")[2] == (home_work_data[j]).split(",")[0]:
-                    print(f'Оценки ученика {value[0]} {value[1]} по предмету {(home_work_data[j]).split(",")[1]} за работу " {(home_work_data[j]).split(",")[2]}" - {(mark_data[i]).split(",")[3]} балла')
                     
+                    print(f'{((home_work_data[j]).split(",")[1]).capitalize()} за работу - "{(home_work_data[j]).split(",")[2]}" - {(mark_data[i]).split(",")[3]} балла')
+                    
+    print()                
    
 
 value = login()
