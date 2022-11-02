@@ -59,22 +59,64 @@ def view_teacher_mark():
     home_work_data = ie.read_file('home_work.txt')
     mark_data = ie.read_file('mark.txt')
     users = ie.read_file('users.txt')
-    
-    for i in range(len(home_work_data)-1):
+    user_mark_list = []
+    temp = ""
+    for i in range(len(home_work_data)):
+        value_in_cukle = i
+        temp = ""
         # temp = (mark_data[j]).split(",")[0] + (mark_data[j]).split(",")[1]
         print('-------------------------------')        
         print(f'{(home_work_data[i].split(","))[1]} - {(home_work_data[i].split(","))[2]}')
-        # for j in users:
+        for j in range(len(mark_data)-1):
+            if (mark_data[j].split(","))[2] == (home_work_data[i].split(","))[0]:
+                print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} оценка - {(mark_data[j]).split(",")[3]}') 
+        print('-------------------------------')     
+        
+def view_student_list():
+    work_data =  ie.read_file('users.txt')           
+    print()     
+    for value in work_data:
+        if value.split(",")[2]=='student': print(f'{value}')
+    print() 
+
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        # for j in range(len(mark_data)-1):            
+        #     if (mark_data[j].split(","))[2] == (home_work_data[i].split(","))[0]:
+        #         user_mark_list.append((mark_data[j]).split(",")[0])
+        #         user_mark_list.append((mark_data[j]).split(",")[1])
+        #         user_mark_list.append(";")
+        #         temp = "".join(user_mark_list)
+        # print(f'user_mark_list = {user_mark_list}')
+        # print(temp)
+            # print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} оценка - {(mark_data[j]).split(",")[3]}')
+        
+        # for n in range(len(mark_data)-1):
+        #     if((mark_data[n].split(","))[2] != (home_work_data[i].split(","))[0]):
+        #         if((mark_data[n].split(","))[0]) and ((mark_data[n].split(","))[1]) not in temp :
+        #             print(f'\t\t{(mark_data[n]).split(",")[0]} {(mark_data[n]).split(",")[1]} - не сдавал  '  )
+
             
 
 
 
 
-    #     for j in range(len(mark_data)-1):            
-            
-            
-    #         if (mark_data[j].split(","))[2] == (home_work_data[i].split(","))[0]:
-    #             print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} оценка - {(mark_data[j]).split(",")[3]}  '  )                 
+                       
             
     #         # elif(mark_data[j].split(","))[2] != (home_work_data[i].split(","))[0]:
     #             # print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} - не сдавал  '  ) 

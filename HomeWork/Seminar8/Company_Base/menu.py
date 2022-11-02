@@ -55,7 +55,14 @@ def exit_menu():
     if choise.lower() == "да":
         exit()
     else:
-        return()         
+        return()
+
+def confirm_menu():
+    choise = input('Сохранить? Да  / Нет\n').lower()
+    if choise.lower() == "да":
+        return(True)
+    else:
+        return (False)
 
 def student_menu():
    while True:
@@ -68,8 +75,8 @@ def student_menu():
 
 def teacher_menu():
    while True:
-        choise_student_menu = input(' 1 - посмотреть успеваимость\n 2 - добавить ДЗ\n 3 - поставить оценку\n 4 - Выход\n')
-        if choise_student_menu == "1" or choise_student_menu == "2" or choise_student_menu == "3" or choise_student_menu == "4":
+        choise_student_menu = input(' 1 - посмотреть успеваимость\n 2 - посмотреть список учеников\n 3 - добавить ДЗ\n 4 - поставить оценку\n 5 - Выход\n')
+        if choise_student_menu == "1" or choise_student_menu == "2" or choise_student_menu == "3" or choise_student_menu == "4" or choise_student_menu == "5":
             return choise_student_menu
         else:
              continue
