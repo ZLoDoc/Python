@@ -111,21 +111,80 @@ def modul_teacher():
         if choise_teacher_menu == "1": view.view_teacher_mark()
         if choise_teacher_menu == "2": view.view_student_list()
         if choise_teacher_menu == "3": add_home_work()
-        if choise_teacher_menu == "4": print("Нужно ставить оценку")
+        if choise_teacher_menu == "4": add_mark()
         if choise_teacher_menu == "5": menu.exit_menu()
 
-def add_home_work():
-    view.view_base('home_work.txt')
+def add_home_work():    
     home_work_data = ie.read_file('home_work.txt')
+    for lesson_string in home_work_data:
+        subject = lesson_string.split(",")[1] + " - " + lesson_string.split(",")[2]    
+        print(subject)
+    
     temp = ""
     temp = str(len(home_work_data)+1) + ","    
     subject = input('введите название предмета: ')
     home_work = input('Напишите ДЗ: ')
     temp += (subject) + "," + (home_work)
+    print(temp)
     home_work_data.append(temp)
     if menu.confirm_menu():
         ie.write_file('home_work.txt',home_work_data)
+
+def add_mark(): 
+     
+    # view.view_teacher_mark()
+    students = list(view.view_student_list())
+    print(f' Это именно тот students{students}')
+    subjects = list(view.view_subject())    
+    print("--------------------------------------------------")
+    for i, item in enumerate(students,1): 
+        print(i," - ",item)
+    print(("--------------------------------------------------"))    
+    for i, item in enumerate(subjects,1): 
+        print(i," - ",item)        
+    print(("--------------------------------------------------"))    
     
+    choise_subject = input(" Выберите предмет: ")
+    for j,item in enumerate(subjects,1):
+        if j == int(choise_subject):
+            subject = str(item)
+
+    choise_student = input(" Выберите студента: ")
+    for j,item in enumerate(students,1):
+        if j == int(choise_student):
+            student = str(item)            
+
+    print(f'предмет - {subject}')
+    print(f'студент - {student}')
+
+    mark_data = ie.read_file("mark.txt")    
+    subject_data = ie.read_file("home_work.txt")    
+    work_result = "" 
+
+    print('-------------------------------------------')
+    for work in subject_data:
+        if subject in work:
+            work_result = (work.split(",")[1]) + "," + (work.split(",")[2])
+            
+            print('несданные задания:')
+            print(work_result)  
+    print('-------------------------------------------') 
+    
+    print('-------------------------------------------')
+    for persons in mark_data:
+        print(f'student - {student} in persons {persons}')
+        
+        
+        if student in persons:
+            print(persons)
+            person_result = (persons.split(",")[0]) + "," + (persons.split(",")[1])            
+            print('студент найден:')
+            print(person_result)  
+    print('-------------------------------------------')                      
+
+
+
+
 
 
 
@@ -137,4 +196,3 @@ print(f'\nРады вас видеть {value[0]}\n')
 if value[2] == 'admin': modul_admin()
 if value[2] == 'student': modul_student(value)
 if value[2] == 'teacher': modul_teacher()
-# add_home_work()

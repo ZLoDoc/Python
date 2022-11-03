@@ -36,12 +36,11 @@ def view_home_work(value):
     print('Не сданные работы:')
     for value in result:
         print(f'{value[2:]}')
-    print(f'\n')           
+    print(f'\n') 
 
 
 
-def view_mark(value):
-    
+def view_mark(value):    
     mark_data = ie.read_file('mark.txt')
     home_work_data = ie.read_file('home_work.txt')
 
@@ -49,77 +48,65 @@ def view_mark(value):
     for i in range (len(mark_data)):
         if (value[0] and value[1]) in str(mark_data[i]).split(","):             
             for j in range(len(home_work_data)):
-                if (mark_data[i]).split(",")[2] == (home_work_data[j]).split(",")[0]:
-                    
+                if (mark_data[i]).split(",")[2] == (home_work_data[j]).split(",")[0]:                    
                     print(f'{((home_work_data[j]).split(",")[1]).capitalize()}, за работу - "{(home_work_data[j]).split(",")[2]}" - {(mark_data[i]).split(",")[3]} балла')
                     
     print()
 
+
+
 def view_teacher_mark():
     home_work_data = ie.read_file('home_work.txt')
     mark_data = ie.read_file('mark.txt')
-    users = ie.read_file('users.txt')
-    user_mark_list = []
-    temp = ""
+    users = ie.read_file('users.txt')    
     for i in range(len(home_work_data)):
-        value_in_cukle = i
-        temp = ""
-        # temp = (mark_data[j]).split(",")[0] + (mark_data[j]).split(",")[1]
         print('-------------------------------')        
         print(f'{(home_work_data[i].split(","))[1]} - {(home_work_data[i].split(","))[2]}')
-        for j in range(len(mark_data)-1):
+
+        user_mark_list = ""
+        for j in range(len(mark_data)):
             if (mark_data[j].split(","))[2] == (home_work_data[i].split(","))[0]:
-                print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} оценка - {(mark_data[j]).split(",")[3]}') 
-        print('-------------------------------')     
+                print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} оценка - {(mark_data[j]).split(",")[3]}')                
+                user_mark_list += ((mark_data[j]).split(",")[0]) + " " + ((mark_data[j]).split(",")[1]) +"\n"                          
+            
+        for n in users:            
+            if  "student" in n:
+                temp = n.split(",")
+                if temp[0] and temp[1] in user_mark_list:
+                    continue
+                else: print(f'\t\t{temp[0]} {temp[1] } - не сдавал')
+            
+    print('-------------------------------')           
         
 def view_student_list():
+    students_list = []
+    students =""
     work_data =  ie.read_file('users.txt')           
     print()     
     for value in work_data:
-        if value.split(",")[2]=='student': print(f'{value}')
-    print() 
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-        # for j in range(len(mark_data)-1):            
-        #     if (mark_data[j].split(","))[2] == (home_work_data[i].split(","))[0]:
-        #         user_mark_list.append((mark_data[j]).split(",")[0])
-        #         user_mark_list.append((mark_data[j]).split(",")[1])
-        #         user_mark_list.append(";")
-        #         temp = "".join(user_mark_list)
-        # print(f'user_mark_list = {user_mark_list}')
-        # print(temp)
-            # print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} оценка - {(mark_data[j]).split(",")[3]}')
-        
-        # for n in range(len(mark_data)-1):
-        #     if((mark_data[n].split(","))[2] != (home_work_data[i].split(","))[0]):
-        #         if((mark_data[n].split(","))[0]) and ((mark_data[n].split(","))[1]) not in temp :
-        #             print(f'\t\t{(mark_data[n]).split(",")[0]} {(mark_data[n]).split(",")[1]} - не сдавал  '  )
-
-            
+        if value.split(",")[2] =='student': 
+            # print(f'{value.split(",")[0]} {value.split(",")[1]}')
+            students += (value.split(",")[0]) + "," + (value.split(",")[1])
+            students_list.append(((value).split(",")[0]) + "," + (value.split(",")[1]))
+            print()
+    
+    # print(students)
+    # print(students_list)
+    return (students_list)
 
 
 
 
-                       
-            
-    #         # elif(mark_data[j].split(","))[2] != (home_work_data[i].split(","))[0]:
-    #             # print(f'\t\t{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} - не сдавал  '  ) 
-    # # print(f'temp = {temp}')
+def view_subject():
+    temp =""
+    temp_list = []
+    subjects = ie.read_file("home_work.txt")    
+    for i in subjects:
+        temp_list.append((i.split(",")[1]))         
+    temp_list = list(set(temp_list))
+    # for value in temp_list:
+    #     temp += value + "\n"
+    return (temp_list)
 
-# view_teacher_mark()
+ 
+
