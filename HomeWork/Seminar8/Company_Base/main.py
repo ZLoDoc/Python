@@ -208,54 +208,8 @@ def add_mark_to_subject_teacher_sub_menu():
                 result_list.append(result_stydent_mark_name)
                 ie.add_data_in_file('mark.txt',result_stydent_mark_name)
                 break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-        
-        
-     
-
-     
-    
-                          
-
-
-
-
-
-
-
-    
-   
+  
+user_list = view.view_base('users.txt')
 
 value = login()
 print(f'\nРады вас видеть {value[0]}\n')

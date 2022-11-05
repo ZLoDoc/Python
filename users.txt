@@ -1,8 +1,10 @@
+1,1,admin
+2,2,student
+3,3,teacher
 Лена,Петрова,admin
 Ли,Чан,student
 Ким,Сен,teacher
 Саша,Пупкин,student
 Сергей,Иванов,student
 Кирилл,Сидоров,student
-1,1,teacher3
 Генадий,Скворцов,teacher
