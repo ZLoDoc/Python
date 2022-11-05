@@ -4,4 +4,5 @@
 Саша,Пупкин,student
 Сергей,Иванов,student
 Кирилл,Сидоров,student
-1,1,teacher
+1,1,teacher3
+Генадий,Скворцов,teacher

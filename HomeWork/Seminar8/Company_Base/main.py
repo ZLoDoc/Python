@@ -109,17 +109,20 @@ def modul_teacher():
      while True:        
         choise_teacher_menu = menu.teacher_menu()
         if choise_teacher_menu == "1": view.view_teacher_mark()
-        if choise_teacher_menu == "2": view.view_student_list()
+        if choise_teacher_menu == "2": 
+            print('\n'.join(map(str,view.view_student_list())))
+            print()
         if choise_teacher_menu == "3": add_home_work()
-        if choise_teacher_menu == "4": add_mark()
+        if choise_teacher_menu == "4": add_mark_to_subject_teacher_sub_menu()
         if choise_teacher_menu == "5": menu.exit_menu()
 
-def add_home_work():    
+def add_home_work():
     home_work_data = ie.read_file('home_work.txt')
     for lesson_string in home_work_data:
         subject = lesson_string.split(",")[1] + " - " + lesson_string.split(",")[2]    
         print(subject)
     
+
     temp = ""
     temp = str(len(home_work_data)+1) + ","    
     subject = input('введите название предмета: ')
@@ -130,57 +133,120 @@ def add_home_work():
     if menu.confirm_menu():
         ie.write_file('home_work.txt',home_work_data)
 
-def add_mark(): 
-     
-    # view.view_teacher_mark()
-    students = list(view.view_student_list())
-    print(f' Это именно тот students{students}')
-    subjects = list(view.view_subject())    
-    print("--------------------------------------------------")
-    for i, item in enumerate(students,1): 
-        print(i," - ",item)
-    print(("--------------------------------------------------"))    
+
+
+        
+
+def add_mark_to_subject_teacher_sub_menu():
+
+    subjects = list(view.view_subject()) #список имен предметов
+    print(("--------------------------------------------------"))     
     for i, item in enumerate(subjects,1): 
-        print(i," - ",item)        
+        print(i," - ",item)
+              
     print(("--------------------------------------------------"))    
-    
-    choise_subject = input(" Выберите предмет: ")
+   
+    choise_subject = input(" Выберите предмет: ")    
     for j,item in enumerate(subjects,1):
         if j == int(choise_subject):
             subject = str(item)
-
-    choise_student = input(" Выберите студента: ")
-    for j,item in enumerate(students,1):
-        if j == int(choise_student):
-            student = str(item)            
-
-    print(f'предмет - {subject}')
-    print(f'студент - {student}')
-
-    mark_data = ie.read_file("mark.txt")    
-    subject_data = ie.read_file("home_work.txt")    
-    work_result = "" 
-
-    print('-------------------------------------------')
-    for work in subject_data:
-        if subject in work:
-            work_result = (work.split(",")[1]) + "," + (work.split(",")[2])
-            
-            print('несданные задания:')
-            print(work_result)  
-    print('-------------------------------------------') 
+            print(f'Домашнее задание по предмету {subject} :')
+    subject_data = ie.read_file("home_work.txt") # 1,литература,выучить стихотворение пушкина
+    print('-------------------------------------------')        
     
+    
+    
+    home_work = []
+    for work in subject_data:        
+        if subject in work:
+            home_work.append(work.split(",")[2]) #  Здесь  work = вся строка включающая имя задания ; home_work = имя задания
+    for i, item in enumerate(home_work,1):
+        print(i," - ",item)  
     print('-------------------------------------------')
-    for persons in mark_data:
-        print(f'student - {student} in persons {persons}')
+    choise_home_work = input(" Выберите задание: ")
+    for j,item in enumerate(home_work,1):
+        if j == int(choise_home_work):
+            home_work = str(item)
+    print(home_work)
+    
+    for work_string in subject_data:
+        if home_work in work_string:
+            choise_subject = work_string.split(",")[0]
+    print('-------------------------------------------')
+
+    mark_data = ie.read_file('mark.txt') # Ли,Чан,2,4
+    users = ie.read_file('users.txt') #    Ли,Чан,student
+   
+    user_mark_list = ""
+    for j in range(len(mark_data)):
+        if (mark_data[j].split(","))[2] == choise_subject:
+            print(f'{(mark_data[j]).split(",")[0]} {(mark_data[j]).split(",")[1]} оценка - {(mark_data[j]).split(",")[3]}')                
+            user_mark_list += ((mark_data[j]).split(",")[0]) + " " + ((mark_data[j]).split(",")[1]) +"\n" # список студентов с оценками 
+     
+    for n in users:            
+            if  "student" in n:
+                temp = n.split(",")
+                if temp[0] and temp[1] in user_mark_list:
+                    continue
+                else: print(f'{temp[0]} {temp[1] } - не сдавал')
+    print('-------------------------------------------')
+
+
+
+    mark_student_name = input('Введите фамилию ученика : ').capitalize()
+    result_list = []
+    result_stydent_mark_name = ""
+    for string_value in mark_data: 
+        # print(string_value)       
+        if mark_student_name in string_value: #проверяю что введенное имя пресутствует в списке user.txt            
+            if mark_student_name not in user_mark_list: #проверяю что введенное имя не присутствует в списке студентов с оценкой
+                student_mark = input('Введите оценку : ')                
+                if student_mark in range(1,6): print() #проверяю что оценка в допустимом диапазоне
+                result_stydent_mark_name = string_value.split(",")[0] + ',' + string_value.split(",")[1] + ',' + choise_subject.split(",")[0] + ',' + student_mark
+                print(f' оценка ученика {result_stydent_mark_name}')
+                result_list.append(mark_data)
+                result_list.append(result_stydent_mark_name)
+                ie.add_data_in_file('mark.txt',result_stydent_mark_name)
+                break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
         
         
-        if student in persons:
-            print(persons)
-            person_result = (persons.split(",")[0]) + "," + (persons.split(",")[1])            
-            print('студент найден:')
-            print(person_result)  
-    print('-------------------------------------------')                      
+     
+
+     
+    
+                          
 
 
 

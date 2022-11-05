@@ -1,4 +1,5 @@
 import imp_exp as ie
+# import main
 
 def login_menu(first_name, last_name):    
     
@@ -81,13 +82,15 @@ def teacher_menu():
         else:
              continue
 
-# def teacher_menu(value):
-#     print(value)
-#     choise = input(' 1 - Добавить ДЗ\n 2 - Поставить оценку\n')
-#     return
 
-# def view_menu():
-#     return
+
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 import imp_exp as ie
 
+
 # print(",\n".join(map(str, home_work_data)))
 
 def view_base(filename):
@@ -80,11 +81,11 @@ def view_teacher_mark():
         
 def view_student_list():
     students_list = []
-    students =""
-    work_data =  ie.read_file('users.txt')           
+    students = ""
+    work_data = ie.read_file('users.txt')
     print()     
     for value in work_data:
-        if value.split(",")[2] =='student': 
+        if value.split(",")[2] == 'student':
             # print(f'{value.split(",")[0]} {value.split(",")[1]}')
             students += (value.split(",")[0]) + "," + (value.split(",")[1])
             students_list.append(((value).split(",")[0]) + "," + (value.split(",")[1]))
@@ -97,16 +98,25 @@ def view_student_list():
 
 
 
-def view_subject():
-    temp =""
+def view_subject():    
     temp_list = []
-    subjects = ie.read_file("home_work.txt")    
-    for i in subjects:
-        temp_list.append((i.split(",")[1]))         
-    temp_list = list(set(temp_list))
-    # for value in temp_list:
-    #     temp += value + "\n"
+    subjects_list = []
+    work_data = ie.read_file("home_work.txt")    
+    for string in work_data:
+        subjects_list.append(string.split(',')[1])
+
+    for i in subjects_list:
+        if i in temp_list:
+            continue
+        else:
+            temp_list.append((i))         
     return (temp_list)
 
- 
+
+
+
+
+
+
+# view_subject() 
 
