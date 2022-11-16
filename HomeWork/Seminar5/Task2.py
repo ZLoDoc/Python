@@ -44,7 +44,8 @@ def name_choice_step():
             player_2name = temp
             print(f'\nПервым ходит {player_1name}')
         con['player_1name'] = player_1name
-        con['player_2name'] = player_2name     
+        con['player_2name'] = player_2name
+        print(con)     
     return (con)
 
 def players_algorithm(con):
