@@ -30,19 +30,19 @@ bot = telebot.TeleBot('5790131962:AAH1zRMDq8Yxp8YFTP202YxZhVjTZJ2Xnsg')
  
 #  или
 
-@bot.message_handler()
+@bot.message_handler(commands=['start'])
 def start(msg: telebot.types.Message):
     bot.send_message(msg.from_user.id, 'Вас приветствует самый лучший калькулятор')
 
 @bot.message_handler()    
 def answer(msg: telebot.types.Message):
-    bot.send_message(msg.from_user,id,'Введите первое число')
-    bot.registrer_next_step_handler(msg, second, last=int(msg.text))
+    bot.send_message(msg.from_user.id,'Введите первое число')
+    bot.register_next_step_handler(msg, second, last=int(msg.text))
 
 def second(msg: telebot.types.Message, last):
     bot.send_message(msg.from_user.id, f'Текущее значение{last}')
     bot.send_message(msg.from_user.id, 'Введите еще одно число')
-    bot.registrer_next_step_handler(msg, second, last=last + int(msg.text))
+    bot.register_next_step_handler(msg, second, last=last + int(msg.text))
  
 bot.polling()
 
